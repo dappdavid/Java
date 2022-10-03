@@ -1,10 +1,10 @@
-package com.test;
+package com.java.z.problems;
 
 /**
  * @author David
  *
  */
-public class A2Programming {
+public class Programming2 {
 
 	public static void main(String[] args) {
 

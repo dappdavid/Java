@@ -1,6 +1,6 @@
-package com.test;
+package com.java.z.problems;
 
-public class A1Programming {
+public class Programming1 {
 	
 	public static int abc = 1;
 
@@ -9,7 +9,7 @@ public class A1Programming {
 		System.out.println(abc);
 		
 	
-		A1Programming p = new A1Programming();
+		Programming1 p = new Programming1();
 		
 	}
 

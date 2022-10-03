@@ -1,4 +1,4 @@
-package com.test;
+package com.java.arrays;
 
 public class ArrayPractice {
 	

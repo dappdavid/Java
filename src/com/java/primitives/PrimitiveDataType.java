@@ -1,4 +1,4 @@
-package com.test;
+package com.java.primitives;
 
 public class PrimitiveDataType {
 

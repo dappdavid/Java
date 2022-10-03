@@ -1,6 +1,6 @@
-package com.test;
+package com.java.statics;
 
-public class Java8 {
+public class Static {
 
 	public static void main(String[] args) {
 
