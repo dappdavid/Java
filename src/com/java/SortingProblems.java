@@ -9,7 +9,6 @@ public class SortingProblems {
 	
 	//Write a Java program that illustrates merge sort
 	private static void mergeSort() {
-		// TODO Auto-generated method stub
 
 	}
 	

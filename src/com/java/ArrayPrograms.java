@@ -23,8 +23,8 @@ public class ArrayPrograms {
 //		findDuplicateNumber(arr);
 
 //		checkIfArrayContainsANumber(arr, 2);
-		int arr[] = new int[] { 55, 32, 45, 98, 82, 11, 9, 39, 50 };
-		findLargestAndSmallestNumber(arr);
+		int arr[] = new int[] { -55, 32, 45, 98, 999, 82, 11, 9, 39, 50 };
+//		findLargestAndSmallestNumber(arr);
 
 	}
 
@@ -100,7 +100,6 @@ public class ArrayPrograms {
 
 	// How to find all pairs on integer array whose sum is equal to given number
 	private static void allPairsWhoseSumIsEqualToGivenNumber(int arr[], int num) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -135,9 +134,14 @@ public class ArrayPrograms {
 	}
 
 	// How to reverse array in place
-	private static void reverseArrayInPlace(int arr[]) {
-		// TODO Auto-generated method stub
-
+	private static int[] reverseArrayInPlace(int arr[]) {
+		int n = arr.length;
+		for (int i = 0; i < n / 2; i++) {
+			int t = arr[i];
+			arr[i] = arr[n - 1 - i];
+			arr[n - 1 - i] = t;
+		}
+		return arr;
 	}
 
 	// Write Java program that checks if two arrays contain the same elements

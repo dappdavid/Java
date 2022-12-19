@@ -8,24 +8,65 @@ public class StringPrograms {
 
 	public static void main(String[] args) {
 
+		System.out.println(checkIfPalindrome(""));
 	}
 
 	// reverse a string in Java
 	private static void reverseString(String s) {
-		// TODO Auto-generated method stub
+
+//		iteration
+		String newStr = "";
+		for (int i = s.length() - 1; i >= 0; i--) {
+			newStr = newStr + s.charAt(i);
+		}
+		System.out.println("new String : " + newStr);
+
+		// Using toCharArray
+		newStr = "";
+		char[] charArray = s.toCharArray();
+		for (int i = charArray.length - 1; i >= 0; i--) {
+			newStr = newStr + charArray[i];
+		}
+		System.out.println("new String : " + newStr);
+
+		// StringBuilder
+		StringBuilder strbuilder = new StringBuilder();
+		strbuilder.append(s);
+		System.out.println("new string : " + strbuilder.reverse());
+
+		// StringBuffer
+		StringBuffer strBuffer = new StringBuffer(s);
+		System.out.println("new string : " + strBuffer.reverse());
 
 	}
 
 	// check if a vowel is present in a string
 	private static void checkForVowels(String s) {
-		// TODO Auto-generated method stub
+
+		int count = 0;
+		// iterative
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) == 'a' || s.charAt(i) == 'e' || s.charAt(i) == 'i' || s.charAt(i) == 'o'
+					|| s.charAt(i) == 'u') {
+				count++;
+			}
+		}
+
+		System.out.println("number of occurences of vowels: " + count);
+	}
+
+	private static void checkForVowelsRecursive(String s) {
 
 	}
 
 	// check whether a string is a palindrome
-	private static void checkIfPalindrome(String s) {
-		// TODO Auto-generated method stub
-
+	private static boolean checkIfPalindrome(String s) {
+		int n = s.length();
+		for (int i = 0; i < n/2; i++) {
+			if (s.charAt(i) != s.charAt(n - i - 1)) 
+				return false;
+		}
+		return true;
 	}
 
 	// How do you remove spaces from a string
@@ -42,13 +83,11 @@ public class StringPrograms {
 
 	// remove all occurrences of a given character from an input string
 	private static void removeAllOccurencesOfACharacter(String s) {
-		// TODO Auto-generated method stub
 
 	}
 
 	// How do you get distinct characters and their count in a string
 	private static void getDistinctCharactersAndTheirCount(String s) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -71,7 +110,7 @@ public class StringPrograms {
 	}
 
 	// How to convert an Array to String in Java
-	private static void convertArrayToString(int []arr) {
+	private static void convertArrayToString(int[] arr) {
 		// TODO Auto-generated method stub
 
 	}
