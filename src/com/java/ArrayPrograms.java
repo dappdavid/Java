@@ -1,34 +1,101 @@
 package com.java;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 public class ArrayPrograms {
 
 	public static void main(String[] args) {
+//		int arr[] = { 1, 2, 3, 2, 4, 5, 4, 4 };
+
+//		int arr[] = new int[100];
+//		for (int i = 0; i < arr.length; i++) {
+//			if (i + 1 != 56)
+//				arr[i] = i + 1;
+//		}
+//		findMissingNumber(arr);
+
+//		int arr[] = {1, 2 , 3, 2, 4, 5, 4, 4};
+//		findDuplicateNumber(arr);
+
+//		checkIfArrayContainsANumber(arr, 2);
+		int arr[] = new int[] { 55, 32, 45, 98, 82, 11, 9, 39, 50 };
+		findLargestAndSmallestNumber(arr);
 
 	}
 
 	// javarevisited.blogspot.com
 	// How to find the missing number in integer array of 1 to 100
 	private static void findMissingNumber(int arr[]) {
-		// TODO Auto-generated method stub
+
+		int expectedSum = 100 * (100 + 1) / 2;
+		int actualSum = 0;
+		for (int i = 0; i < arr.length; i++) {
+			actualSum = actualSum + arr[i];
+		}
+		System.out.println("missing number is " + (expectedSum - actualSum));
 
 	}
 
 	// How to find duplicate number on Integer array in Java
 	private static void findDuplicateNumber(int arr[]) {
-		// TODO Auto-generated method stub
 
+		Set s = new HashSet<Integer>();
+		Set duplicateNumbers = new HashSet<Integer>();
+
+		for (int i = 0; i < arr.length; i++) {
+			boolean add = s.add(arr[i]);
+			if (!add) {
+				duplicateNumbers.add(arr[i]);
+			}
+		}
+
+		System.out.println("Duplicate numbers are");
+		duplicateNumbers.forEach(i -> System.out.println(i));
 	}
 
 	// How to check if array contains a number
 	private static void checkIfArrayContainsANumber(int arr[], int num) {
-		// TODO Auto-generated method stub
+
+		// Linear search
+		for (int i = 0; i < arr.length; i++) {
+			if (num == arr[i]) {
+				System.out.println("Yes number is present");
+				break;
+			}
+		}
+
+		// Binary Search
+		Arrays.sort(arr);
+		int result = Arrays.binarySearch(arr, num);
+		if (result > 0)
+			System.out.println("Yes number is present");
+
+		// contains
+		List<Integer> l = Arrays.asList(1, 3, 4, 8, 2, 3);
+		if (l.contains(2))
+			System.out.println("Yes number is present");
 
 	}
 
 	// How to find largest and smallest number in unsorted array
 	private static void findLargestAndSmallestNumber(int arr[]) {
-		// TODO Auto-generated method stub
 
+		int smallest = arr[0];
+		int largest = arr[0];
+
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] < smallest)
+				smallest = arr[i];
+			if (arr[i] > largest)
+				largest = arr[i];
+		}
+		System.out.println("smallest number is : " + smallest);
+		System.out.println("largest number is : " + largest);
 	}
 
 	// How to find all pairs on integer array whose sum is equal to given number
