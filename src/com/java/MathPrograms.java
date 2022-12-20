@@ -6,20 +6,22 @@ public class MathPrograms {
 
 	public static void main(String[] args) {
 
-		long startTime = System.currentTimeMillis();
+//		long startTime = System.currentTimeMillis();
 //		System.out.println(biggestPrimeNumberUnderACertainNumber(4000000));
-		System.out.println(checkIfPrime(3999971));
-		long endTime = System.currentTimeMillis();
-		System.out.println("Time taken : " + (endTime - startTime));
+//		System.out.println(checkIfPrime(3999971));
+//		long endTime = System.currentTimeMillis();
+//		System.out.println("Time taken : " + (endTime - startTime));
+		fibonacci(10);
+
 	}
 
 	// find the factorial of an integer
 	private static int factorial(int n) {
 		if (n <= 1)
 			return 1;
-		else
+		else {
 			return n * factorial(n - 1);
-
+		}
 	}
 
 	// Swap with temp
@@ -92,9 +94,30 @@ public class MathPrograms {
 		return -1;
 	}
 
-	// print a Fibonacci sequence using recursion
+	// print a Fibonacci sequence using while loop
 	private static void fibonacci(int n) {
+		int firstTerm = 0;
+		int secondTerm = 1;
+		int count = 3;
 
+		System.out.print(firstTerm + " " + secondTerm);
+		while (count <= n) {
+			int nextTerm = firstTerm + secondTerm;
+			System.out.print(" " + nextTerm);
+			firstTerm = secondTerm;
+			secondTerm = nextTerm;
+			count++;
+		}
+	}
+
+	// find the sum of Fibonacci sequence using recursion
+	private static int fibonacciRecursion(int n) {
+		if (n == 0 || n == 1)
+			return 0;
+		else if (n == 2)
+			return 1;
+		else
+			return n + fibonacciRecursion(n - 1);
 	}
 
 	// check if a list of integers contains only odd numbers

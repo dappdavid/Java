@@ -1,5 +1,9 @@
 package com.java;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author David
  *
@@ -8,7 +12,7 @@ public class StringPrograms {
 
 	public static void main(String[] args) {
 
-		System.out.println(checkIfPalindrome(""));
+		swapTwoStringsWithoutUsingTemp("john","david");
 	}
 
 	// reverse a string in Java
@@ -62,8 +66,8 @@ public class StringPrograms {
 	// check whether a string is a palindrome
 	private static boolean checkIfPalindrome(String s) {
 		int n = s.length();
-		for (int i = 0; i < n/2; i++) {
-			if (s.charAt(i) != s.charAt(n - i - 1)) 
+		for (int i = 0; i < n / 2; i++) {
+			if (s.charAt(i) != s.charAt(n - i - 1))
 				return false;
 		}
 		return true;
@@ -88,7 +92,18 @@ public class StringPrograms {
 
 	// How do you get distinct characters and their count in a string
 	private static void getDistinctCharactersAndTheirCount(String s) {
+		HashMap<Character, Integer> map = new HashMap<>();
+		for (int i = 0; i < s.length(); i++) {
+			if (!map.containsKey(s.charAt(i))) {
+				map.put(s.charAt(i), 1);
+			} else {
+				map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
+			}
+		}
 
+		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+			System.out.println(entry.getKey() + " has " + entry.getValue() + " entries");
+		}
 	}
 
 	// Can you prove that a String object in Java is immutable programmatically
@@ -117,9 +132,22 @@ public class StringPrograms {
 
 	// In what way should two strings be compared to determine whether they are
 	// anagrams
-	private static void checkIfTwoStringsAreAnagrams(String s1, String s2) {
-		// TODO Auto-generated method stub
+	private static boolean checkIfTwoStringsAreAnagrams(String s1, String s2) {
 
+		if (s1.length() != s2.length())
+			return false;
+
+		char[] char1 = s1.toCharArray();
+		char[] char2 = s2.toCharArray();
+		Arrays.sort(char1);
+		Arrays.sort(char2);
+
+		for (int i = 0; i < char2.length; i++) {
+			if (char1[i] != char2[i])
+				return false;
+		}
+
+		return true;
 	}
 
 	// How can we remove a specific character from a String
@@ -187,7 +215,16 @@ public class StringPrograms {
 
 	// How do you swap two string variables without using third or temp variable
 	private static void swapTwoStringsWithoutUsingTemp(String s1, String s2) {
-		// TODO Auto-generated method stub
+		
+		System.out.println("String 1 : "+s1);
+		System.out.println("String 2 : "+s2);
+		
+		s1 = s1 + s2;
+		s2 = s1.substring(0, s1.length()-s2.length());
+		s1 = s1.substring(s2.length());
+		
+		System.out.println("String 1 : "+s1);
+		System.out.println("String 2 : "+s2);
 
 	}
 
@@ -259,14 +296,5 @@ public class StringPrograms {
 
 	}
 
-	// TextFilePrograms
-	// Write a Java program to append a given string to a text file
-	// How do you find the number of characters, words and lines in the given text
-	// file
-
-	// How do you find the most repeated word in a text file
-	// How to sort a text file
-	// How can you find a string in a text file
-	// How to replace a specific string in a text file
 
 }
