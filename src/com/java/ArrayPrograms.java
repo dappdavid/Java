@@ -23,8 +23,40 @@ public class ArrayPrograms {
 //		findDuplicateNumber(arr);
 
 //		checkIfArrayContainsANumber(arr, 2);
-		int arr[] = new int[] { -55, 32, 45, 98, 999, 82, 11, 9, 39, 50 };
+//		int arr[] = new int[] { -55, 32, 45, 98, 999, 82, 11, 9, 39, 50 };
 //		findLargestAndSmallestNumber(arr);
+
+		sortArray();
+	}
+
+	// 0s followed by 1s
+	private static void sortArray() {
+		// TODO Auto-generated method stub
+		int[] arr = { 1, 0, 1, 1, 1, 1, 1, 0, 1, 0 };
+
+		int leftIndex = 0;
+		int rightIndex = arr.length - 1;
+
+		while (leftIndex < rightIndex) {
+
+			while (arr[leftIndex] == 0 & leftIndex < rightIndex)
+				leftIndex++;
+			while (arr[rightIndex] == 1 & leftIndex < rightIndex)
+				rightIndex--;
+
+			while (arr[leftIndex] > arr[rightIndex]) {
+				arr[leftIndex] = 0;
+				arr[rightIndex] = 1;
+				leftIndex++;
+				rightIndex--;
+			}
+
+		}
+
+		for(int i : arr) {
+			System.out.print(i);
+		}
+		
 
 	}
 
